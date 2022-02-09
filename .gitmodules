@@ -1,0 +1,15 @@
+[submodule "3rdparty/Eigen"]
+	path = 3rdparty/Eigen
+	url = https://gitlab.com/libeigen/eigen.git
+[submodule "3rdparty/pybind11"]
+	path = 3rdparty/pybind11
+	url = https://github.com/pybind/pybind11
+[submodule "3rdparty/minkindr"]
+	path = 3rdparty/minkindr
+	url = https://github.com/ethz-asl/minkindr.git
+[submodule "3rdparty/voxblox"]
+	path = 3rdparty/voxblox
+	url = https://github.com/nachovizzo/voxblox.git
+[submodule "3rdparty/glog"]
+	path = 3rdparty/glog
+	url = https://github.com/google/glog.git

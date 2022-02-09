@@ -1,0 +1,39 @@
+image: gitlab.ipb.uni-bonn.de:4567/ipb-team/ipb-tools/voxblox_pybind
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  GIT_SUBMODULE_STRATEGY: normal
+
+cache:
+  paths:
+    - .cache/pip
+
+stages:
+  - format
+  - build
+  - install
+  - test
+
+black:
+  stage: format
+  script:
+    - black --check .
+
+build_wheel:
+  stage: build
+  script:
+    - python3 setup.py bdist_wheel
+  artifacts:
+    paths:
+      - dist/*.whl
+
+install:
+  stage: install
+  script:
+    - pip3 -v install dist/*.whl
+
+test:
+  stage: test
+  script:
+    - pip3 -v install dist/*.whl
+    - python3 -m unittest discover -v tests

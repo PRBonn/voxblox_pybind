@@ -1,0 +1,39 @@
+# Main config
+voxel_size: 0.1
+sdf_trunc: 0.3
+out_dir: "results/"
+
+# SimpleTsdfIntegrator
+voxels_per_side: 16
+max_weight: 10000.0
+voxel_carving_enabled: false
+min_ray_length_m: 2.0
+max_ray_length_m: 70.0
+use_const_weight: true
+allow_clear: true
+use_weight_dropoff: true
+use_sparsity_compensation_factor: true
+sparsity_compensation_factor: 1.0
+integrator_threads: 1
+
+# Custom integrators configs
+
+# Mode of the ThreadSafeIndex, determines the integration order of the
+# rays. Options: "mixed", "sorted"
+integration_order_mode: "mixed"
+
+# merge integrator specific
+enable_anti_grazing: false
+
+# fast integrator specific
+start_voxel_subsampling_factor: 2.0
+max_consecutive_ray_collisions: 2
+clear_checks_every_n_frames: 1
+
+# kitti:
+preprocess: True
+apply_pose: False
+min_range: 2.0
+max_range: 70
+correct_scan: True
+voxelize: False
